@@ -102,6 +102,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   count: product.images.length,
                   effect: ExpandingDotsEffect(
                     activeDotColor: context.theme.primaryColor,
+                    // ignore: deprecated_member_use
                     dotColor: context.theme.colorScheme.surfaceVariant,
                     dotHeight: 10,
                     expansionFactor: 1.8,

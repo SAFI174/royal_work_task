@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:royal_task/core/extentions/extentions.dart';
-import 'package:royal_task/core/widgets/loader_widget.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_padding.dart';

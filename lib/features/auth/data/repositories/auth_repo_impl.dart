@@ -76,6 +76,5 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  // TODO: implement checkAuthStatus
   Stream<fa.User?> get checkAuthStatus => _authRemoteDatasource.checkAuthStatus;
 }
