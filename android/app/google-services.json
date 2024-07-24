@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983521269920",
+    "project_id": "royal-test-de10c",
+    "storage_bucket": "royal-test-de10c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983521269920:android:c7175b2dc41e47b778d1c5",
+        "android_client_info": {
+          "package_name": "com.royal.task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg0fteJbtRf6MQhqvZuTsI6aPiisEnnB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
