@@ -11,11 +11,10 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.isLoading = false,
   });
   final String text;
   final Function() onPressed;
-  final bool isLoading;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,13 +32,11 @@ class AuthButton extends StatelessWidget {
         minWidth: double.infinity,
         padding: AppPadding.paddingA20,
         shape: RoundedRectangleBorder(borderRadius: AppRadius.radiusC10),
-        onPressed: isLoading ? null : onPressed,
-        child: isLoading
-            ? const Loader()
-            : Text(
-                text,
-                style: context.primaryTextTheme.labelLarge,
-              ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: context.primaryTextTheme.labelLarge,
+        ),
       ),
     );
   }
