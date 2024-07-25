@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:royal_task/core/widgets/loader_widget.dart';
 import 'package:royal_task/init_dependency.dart';
-import 'dart:developer';
 import '../bloc/cart/cart_bloc.dart';
 
 class CartProductListPage extends StatelessWidget {
@@ -23,13 +22,7 @@ class CartProductListPage extends StatelessWidget {
           )
         ],
       ),
-      body: BlocConsumer<CartBloc, CartState>(
-        listener: (context, state) {
-          state.whenOrNull(
-            error: (message) => log(message),
-            loaded: (message) => log(message.length.toString()),
-          );
-        },
+      body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           return state.maybeWhen(
             error: (message) => Text(message),

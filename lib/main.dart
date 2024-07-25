@@ -4,7 +4,7 @@ import 'package:royal_task/core/app_router.dart';
 import 'package:royal_task/core/theme/theme.dart';
 import 'package:royal_task/features/auth/presentation/cubits/auth/auth_bloc.dart';
 import 'package:royal_task/features/cart/presentation/bloc/cart/cart_bloc.dart';
-import 'package:royal_task/features/products/presentation/blocs/product/product_bloc.dart';
+import 'package:royal_task/features/home/presentation/blocs/home/home_bloc.dart';
 import 'package:royal_task/init_dependency.dart';
 
 void main(List<String> args) async {
@@ -35,8 +35,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(create: (context) => serviceLocator<AuthBloc>()),
         BlocProvider(
-            create: (context) => serviceLocator<ProductBloc>()
-              ..add(const ProductEvent.getProducts(isRefresh: false))),
+            create: (context) => serviceLocator<HomeBloc>()
+              ..add(const HomeEvent.getHomeData(isRefresh: false))),
         BlocProvider(
             create: (context) => serviceLocator<CartBloc>()
               ..add(const CartEvent.getCartItems())),

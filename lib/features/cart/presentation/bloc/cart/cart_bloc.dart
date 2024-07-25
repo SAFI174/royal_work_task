@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:royal_task/features/cart/domain/usecases/clear_cart_usecase.dart';
 import 'package:royal_task/features/cart/domain/usecases/get_cart_items_usecase.dart';
-import 'package:royal_task/features/products/domain/entities/product.dart';
+import 'package:royal_task/features/home/domain/entities/product.dart';
 
 import '../../../../../core/usecase/usecase.dart';
 import '../../../domain/entities/cart_item.dart';

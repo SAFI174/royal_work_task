@@ -1,0 +1,2 @@
+const String bannerImage =
+    'https://s3-alpha-sig.figma.com/img/024d/5f31/c94f03f9149f02a372e739c5b8ca1d08?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bLCxDgrTwARhtHNYt7-lHbD4yaa0r~skmVs5P6pKmrU07DeNqAe8Qk8XWhFdui8qREhBeiZVNoVqqee8jwUUvAnriILMo8i3xJC3oWyTT29EpW9W1y887fGkFi-8xv~XnBpXUaNjMHnapJnpIidTRf8yWwbmWUNyqBAzOgmBVLTrWDV3stdrysOICxcVmcVu5DFscWmHBxmMHqkjP~v1Vqf~n6FuPYnYj5DvNe1YWiBJ5aOLgE~fIxq9U1WDYMkSbNPaAh0RHgNW8wZ4CfrhrYyyoVC-12Gc2zzPMiRnVO1cL7fXCxpcO~WgNt3PEDg6hzaEHAizj7aqR6~uIPWNvw__';

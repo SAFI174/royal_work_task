@@ -11,7 +11,7 @@ class ApiClient {
     try {
       final response = await dio.get(path);
       return response;
-    } catch (error) {
+    } on DioException catch (error) {
       throw Exception('Failed to GET data: $error');
     }
   }

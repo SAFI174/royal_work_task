@@ -24,15 +24,16 @@ import 'package:royal_task/features/cart/domain/repositories/cart_repo.dart';
 import 'package:royal_task/features/cart/domain/usecases/clear_cart_usecase.dart';
 import 'package:royal_task/features/cart/domain/usecases/get_cart_items_usecase.dart';
 import 'package:royal_task/features/cart/presentation/bloc/cart/cart_bloc.dart';
-import 'package:royal_task/features/products/data/datasources/products_local_datasource.dart';
-import 'package:royal_task/features/products/domain/repositories/product_repo.dart';
-import 'package:royal_task/features/products/domain/usecases/get_products_usecase.dart';
-import 'package:royal_task/features/products/presentation/blocs/product/product_bloc.dart';
+import 'package:royal_task/features/home/data/datasources/home_local_datasource.dart';
+import 'package:royal_task/features/home/domain/repositories/home_repo.dart';
+import 'package:royal_task/features/home/domain/usecases/get_categories_usecae.dart';
+import 'package:royal_task/features/home/domain/usecases/get_products_usecase.dart';
+import 'package:royal_task/features/home/presentation/blocs/home/home_bloc.dart';
 
 import 'core/common/cubit/app_user/app_user_cubit.dart';
 import 'features/cart/domain/usecases/save_cart_usecase.dart';
-import 'features/products/data/datasources/products_remote_datasoruce.dart';
-import 'features/products/data/repositories/product_repo_impl.dart';
+import 'features/home/data/datasources/home_remote_datasoruce.dart';
+import 'features/home/data/repositories/home_repo_impl.dart';
 import 'firebase_options.dart';
 
 final serviceLocator = GetIt.instance;
@@ -44,7 +45,7 @@ Future<void> initDependency() async {
   await initFirebase();
   await initAuthFeature();
   await initRoutes();
-  await initProductsFeature();
+  await initHomeFeature();
   await initCart();
 }
 
@@ -74,26 +75,30 @@ Future<void> initApiClient() async {
   serviceLocator.registerSingleton(ApiClient(dio: serviceLocator()));
 }
 
-Future<void> initProductsFeature() async {
-  GetStorage.init('products');
-  serviceLocator.registerFactory<ProductsRemoteDataSoruce>(
-    () => ProductsRemoteDataSoruceImpl(apiClient: serviceLocator()),
+Future<void> initHomeFeature() async {
+  GetStorage.init('home');
+  serviceLocator.registerFactory<HomeRemoteDatasoruce>(
+    () => HomeRemoteDatasoruceImpl(apiClient: serviceLocator()),
   );
-  serviceLocator.registerFactory<ProductsLocalDataSoruce>(
-    () => ProductsLocalDataSourceImpl(box: GetStorage('products')),
+  serviceLocator.registerFactory<HomeLocalDatasource>(
+    () => HomeLocalDatasourceImpl(box: GetStorage('home')),
   );
   serviceLocator.registerFactory<NetworkInfo>(
     () => NetworkInfoImpl(internetConnection: serviceLocator()),
   );
-  serviceLocator.registerFactory<ProductRepo>(() => ProductRepoImpl(
-        productsRemoteDataSoruce: serviceLocator(),
+  serviceLocator.registerFactory<HomeRepo>(() => HomeRepoImpl(
+        homeRemoteDatasoruce: serviceLocator(),
         networkInfo: serviceLocator(),
-        productsLocalDataSoruce: serviceLocator(),
+        homeLocalDatasource: serviceLocator(),
       ));
   serviceLocator.registerFactory(
-    () => GetProductsUsecase(productRepo: serviceLocator()),
+    () => GetProductsUsecase(homeRepo: serviceLocator()),
   );
-  serviceLocator.registerSingleton(ProductBloc(serviceLocator()));
+  serviceLocator.registerFactory(
+    () => GetCategoriesUsecae(homeRepo: serviceLocator()),
+  );
+  serviceLocator
+      .registerSingleton(HomeBloc(serviceLocator(), serviceLocator()));
 }
 
 Future<void> initFirebase() async {
