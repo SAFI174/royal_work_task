@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppPadding {
+  static const EdgeInsetsGeometry paddingA5 = EdgeInsets.all(5);
   static const EdgeInsetsGeometry paddingA8 = EdgeInsets.all(8);
   static const EdgeInsetsGeometry paddingA10 = EdgeInsets.all(10);
   static const EdgeInsetsGeometry paddingA15 = EdgeInsets.all(15);

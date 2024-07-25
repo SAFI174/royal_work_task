@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:royal_task/core/common/cubit/app_user/app_user_cubit.dart';
 import 'package:royal_task/features/cart/presentation/pages/cart_product_list_page.dart';
-import 'package:royal_task/features/products/presentation/pages/product_list_page.dart';
+import 'package:royal_task/features/products/presentation/pages/home_page.dart';
 
 import 'utils/stream_to_listenable.dart';
 import '../features/auth/presentation/pages/signin_page.dart';
@@ -33,7 +33,7 @@ class AppRouter {
       GoRoute(
           name: AppRoutes.home.name,
           path: AppRoutes.home.path,
-          builder: (context, state) => const ProductListPage(),
+          builder: (context, state) => const HomePage(),
           routes: [
             GoRoute(
               name: AppRoutes.productDetails.name,

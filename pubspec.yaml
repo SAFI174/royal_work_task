@@ -49,8 +49,8 @@ dependencies:
   auto_height_grid_view: ^1.0.0
   smooth_page_indicator: ^1.2.0+3
   carousel_slider: ^4.2.1
-  hive: ^4.0.0-dev.2
   get_storage: ^2.1.1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

@@ -3,9 +3,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:royal_task/core/extentions/extentions.dart';
+import 'package:royal_task/core/theme/app_colors.dart';
 import 'package:royal_task/core/theme/app_padding.dart';
 import 'package:royal_task/features/cart/presentation/bloc/cart/cart_bloc.dart';
 import 'package:royal_task/features/products/domain/entities/product.dart';
+import 'package:royal_task/features/products/presentation/painters/background_painter.dart';
+import 'package:royal_task/features/products/presentation/widgets/app_bar_action.dart';
 import 'package:royal_task/init_dependency.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -27,7 +30,22 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         serviceLocator<ProductBloc>().getProductById(widget.productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text(product.title),
+        leading: Padding(
+          padding: AppPadding.paddingA8,
+          child: AppBarAction(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: AppColors.whiteColor,
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        title: Text(
+          product.title,
+          style: context.textTheme.titleMedium,
+        ),
       ),
       bottomNavigationBar: Container(
         padding: AppPadding.paddingA10,
@@ -54,8 +72,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        padding: AppPadding.paddingA10,
+      body: CustomPaint(
+        painter: BackgroundPainter(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

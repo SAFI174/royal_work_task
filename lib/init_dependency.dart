@@ -75,6 +75,7 @@ Future<void> initApiClient() async {
 }
 
 Future<void> initProductsFeature() async {
+  GetStorage.init('products');
   serviceLocator.registerFactory<ProductsRemoteDataSoruce>(
     () => ProductsRemoteDataSoruceImpl(apiClient: serviceLocator()),
   );

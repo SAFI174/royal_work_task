@@ -82,13 +82,12 @@ class _SigninPageState extends State<SigninPage> {
                       onTap: () => context.pushNamed(AppRoutes.signup.name),
                       child: RichText(
                         text: const TextSpan(
-                          style: TextStyle(color: AppColors.black),
                           text: "Don't have an account? ",
                           children: [
                             TextSpan(
                               text: 'Sign Up',
                               style: TextStyle(
-                                color: AppColors.gradient2,
+                                color: AppColors.gradient1,
                               ),
                             )
                           ],

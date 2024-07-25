@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: AppThemes.lighTheme,
+        theme: AppThemes.darkTheme,
         routerConfig: serviceLocator<AppRouter>().router,
       ),
     );

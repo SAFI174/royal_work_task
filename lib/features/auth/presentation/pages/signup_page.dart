@@ -94,15 +94,12 @@ class _SignupPageState extends State<SignupPage> {
                       },
                       child: RichText(
                         text: const TextSpan(
-                          style: TextStyle(
-                            color: AppColors.black,
-                          ),
                           text: "Already have an account? ",
                           children: [
                             TextSpan(
                               text: 'Sign In',
                               style: TextStyle(
-                                color: AppColors.gradient2,
+                                color: AppColors.gradient1,
                               ),
                             )
                           ],
